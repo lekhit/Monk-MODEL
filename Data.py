@@ -22,7 +22,7 @@ class Data:
     if self.r=="inspire":
       return self.inspire()
     if self.r=="advice":
-      return self.advice
+      return self.advice()
     else:
       return "wrong Data input"
     
