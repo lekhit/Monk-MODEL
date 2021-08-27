@@ -7,7 +7,6 @@ class Reply:
     addressed=self.to
     out=""
     for address in addressed:
-      print(address)
       out+=address+', '
     starter=f"My Dear {out}"
     data=f'{starter}\n{self.data}'

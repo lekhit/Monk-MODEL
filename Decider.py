@@ -16,21 +16,15 @@ class Decider:
     return False
   
   def requirements(self):
-    available=["inspire","advice"]
+    available=['image',"inspire","advice"]
 
     for word in available:
-      if word in self.msg or word[0] in self.msg.split():
+      if word in self.msg or word[0] in self.msg:
         return word
-    return random.choice(available)
+    var=random.choices(available,[20,10,10],k=1)
+    return var[0]
 
-  async def get_mentions(self):
-      ref_id=self.message.reference.message_id
-      pre_message=await self.message.channel.fetch_message(ref_id)
-      author=pre_message.author.name
-      print(author)
-      self.author=str(author)
-      return str(author)
-      
+ 
   def to_name(self):
     to=[]
     # if self.message.reference:
