@@ -16,12 +16,12 @@ class Decider:
     return False
   
   def requirements(self):
-    available=['image',"inspire","advice"]
-
+    available=['image']
+    basic=["inspire","advice"]
     for word in available:
       if word in self.msg or word[0] in self.msg:
         return word
-    var=random.choices(available,[20,10,10],k=1)
+    var=random.choices(basic,[10,10],k=1)
     return var[0]
 
  

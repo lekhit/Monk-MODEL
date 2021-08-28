@@ -19,7 +19,7 @@ class Data:
     return self.data
 
  
-  def image(query=''):
+  def image(self,query=''):
     import random,os
     
     words=['cats','birds','shibes']
@@ -32,6 +32,16 @@ class Data:
 
     return url
 
+  def anime(self):
+    words=['waifu', 'neko', 'shinobu',     'megumin', 'bully', 'cuddle', 'cry',  'hug', 'awoo', 'pat', 'smug', 'bonk', 'yeet', 'blush', 'smile', 'wave',     'highfive', 'handhold', 'nom',         'bite', 'glomp', 'slap', 'kill',    'kick', 'happy', 'wink', 'poke',       'dance', 'cringe']
+    reply=''
+    for word in words:
+      r=requests.get('https://api.waifu.pics/sfw/{}'.format(word))
+      js=json.loads(r.text)
+      print(json.dumps(js,indent=3))
+      reply+=f"{word} \n{js['url']}\n"
+    return reply
+
   def data(self):
     command=self.r
     if command=="inspire":
@@ -40,6 +50,8 @@ class Data:
       return self.advice()
     if command=='image':
       return self.image()
+    if command=="anime":
+      return self.anime()
     else:
       return "wrong Data input"
     
